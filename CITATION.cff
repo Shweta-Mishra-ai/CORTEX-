@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use CORTEX in your research, please cite the following paper."
+type: software
+title: "CORTEX: Context Optimization via Repository Token EXclusion"
+version: 1.0.0
+date-released: 2025-05-26
+authors:
+  - family-names: Mishra
+    given-names: Shweta
+    email: shweta.mishra.research@gmail.com
+    orcid: ""
+repository-code: "https://github.com/shweta-mishra-research/cortex"
+url: "https://github.com/shweta-mishra-research/cortex"
+abstract: >
+  CORTEX is a pre-execution, size-based heuristic filtering framework for
+  LLM-based developer tools. It intercepts repository scans before tokenization
+  using only OS-level stat() metadata, achieving 79.6–89.3% token reduction
+  at sub-millisecond latency.
+keywords:
+  - LLM context optimization
+  - pre-execution filtering
+  - token budget management
+  - MECW
+  - developer tooling
+license: MIT
+preferred-citation:
+  type: generic
+  title: >
+    Correctness-Aware Context Hygiene: Pre-Execution Repository Filtering
+    Under Maximum Effective Context Window Constraints
+  authors:
+    - family-names: Mishra
+      given-names: Shweta
+  year: 2025
+  notes: "Codename: CORTEX"

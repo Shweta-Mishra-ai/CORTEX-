@@ -1,0 +1,68 @@
+name: CORTEX CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: "Unit Tests — Zero Disk I/O"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['22.x']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install --ignore-scripts
+
+      - name: Run all filter tests
+        run: npm test
+
+      - name: Run advanced filter tests
+        run: npm run test:advanced
+
+      - name: Run research filter tests
+        run: npm run test:research
+
+      - name: Verify committed paper results
+        run: npm run verify:paper
+
+      - name: Latency benchmark
+        run: node benchmarks/latency.js
+
+  figures:
+    name: "Figure Generation"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install matplotlib numpy --quiet
+      - name: Generate all paper figures
+        run: python experiments/scripts/plot_figures.py
+      - name: Upload figures as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-figures
+          path: paper/figures/
+          retention-days: 30
+
+  validate:
+    name: "Heuristic Validation"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22.x' }
+      - run: node experiments/scripts/run_validation.js
