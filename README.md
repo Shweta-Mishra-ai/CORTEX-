@@ -301,5 +301,5 @@ MIT License. See [LICENSE](LICENSE).
 
 <div align="center">
 <sub>CORTEX · Context Optimization via Repository Token EXclusion</sub><br>
-<sub>Shweta Mishra · 2026</sub>
+<sub>Shweta Mishra · 2025</sub>
 </div>
