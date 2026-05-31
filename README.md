@@ -57,7 +57,7 @@ Evaluated on **10 real open-source repositories** (22,046 files, 5 languages):
 ## Installation
 
 ```bash
-git clone https://github.com/shweta-mishra-research/cortex
+git clone https://github.com/shweta-mishra-ai/cortex
 cd cortex
 npm install
 ```
@@ -271,7 +271,7 @@ as paper results until evaluated on the full corpus.
   author    = {Mishra, Shweta},
   year      = {2025},
   note      = {Codename: CORTEX},
-  url       = {https://github.com/shweta-mishra-research/cortex}
+  url       = {https://github.com/shweta-mishra-ai/cortex}
 }
 ```
 
@@ -279,7 +279,7 @@ as paper results until evaluated on the full corpus.
 
 ## Related Work
 
-| System | Stage | Index? | Handles Binary? |
+| System | Stage | Index | Handles Binary |
 |--------|-------|--------|-----------------|
 | RepoCoder | Post-read | Yes | No |
 | GraphRAG | Post-read | Yes | No |
@@ -301,5 +301,5 @@ MIT License. See [LICENSE](LICENSE).
 
 <div align="center">
 <sub>CORTEX · Context Optimization via Repository Token EXclusion</sub><br>
-<sub>Shweta Mishra · 2025</sub>
+<sub>Shweta Mishra · 2026</sub>
 </div>
