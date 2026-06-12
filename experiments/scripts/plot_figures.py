@@ -140,6 +140,14 @@ def load_results(path):
     with open(path) as f:
         return json.load(f)
 
+
+def _metric(row, *keys, default=0.0):
+    for key in keys:
+        value = row.get(key)
+        if value is not None:
+            return value
+    return default
+
 # ── Fig 3: Token Reduction per Filter ────────────────────────────────
 def fig3_reduction(data, out_dir):
     agg = {a['filter']: a for a in data['aggregated']}
@@ -153,10 +161,10 @@ def fig3_reduction(data, out_dir):
         'NoFilter','GitignoreFilter','MinifiedFilter',
         'BinaryFilter','ExtensionFilter',
         'SizeFilter(1MB) [P]','SemanticFilter',
-        'SizeFilter(50KB)','HybridFilter(1MB) ✦',
+        'SizeFilter(50KB)','HybridFilter(1MB)',
     ]
-    means  = [agg[f]['avgTokenReductionPct'] for f in filters]
-    stds   = [agg[f]['stdTokenReductionPct'] for f in filters]
+    means  = [_metric(agg[f], 'avgTokenReductionPct', 'mean') for f in filters]
+    stds   = [_metric(agg[f], 'stdTokenReductionPct', 'std') for f in filters]
     colors = [
         COLORS['baseline'], COLORS['neutral'], COLORS['neutral'],
         COLORS['neutral'], COLORS['neutral'],
@@ -180,11 +188,11 @@ def fig3_reduction(data, out_dir):
     ax.set_yticklabels(labels, fontsize=8)
     ax.set_xlabel('Mean Token Reduction (%)')
     ax.set_xlim(0, 110)
-    ax.set_title('Token Reduction by Filter Strategy (10 Repositories)\nError bars: ±1 SD', pad=6)
+    ax.set_title('Token Reduction by Filter Strategy (10 Repositories)\nError bars: +/- 1 SD', pad=6)
     ax.axvline(0, color='black', linewidth=0.8)
 
     proposed_patch    = mpatches.Patch(color=COLORS['proposed'],    label='Proposed [P]')
-    recommended_patch = mpatches.Patch(color=COLORS['recommended'], label='Recommended ✦')
+    recommended_patch = mpatches.Patch(color=COLORS['recommended'], label='Recommended')
     ax.legend(handles=[proposed_patch, recommended_patch], loc='lower right', fontsize=7.5)
 
     plt.tight_layout()
@@ -196,9 +204,12 @@ def fig3_reduction(data, out_dir):
 # ── Fig 4: Threshold Sensitivity ─────────────────────────────────────
 def fig4_threshold(data, out_dir):
     tc     = data['thresholdCurve']
+    if not tc:
+        print('  ⚠ No thresholdCurve data for Fig4; skipping')
+        return
     labels = [t['threshold'] for t in tc]
-    means  = [t['avgTokenReduction'] for t in tc]
-    stds   = [t['stdTokenReduction'] for t in tc]
+    means  = [_metric(t, 'avgTokenReduction', 'mean') for t in tc]
+    stds   = [_metric(t, 'stdTokenReduction', 'std') for t in tc]
     ci_lo  = [t.get('ciLow95',  m - s) for t, m, s in zip(tc, means, stds)]
     ci_hi  = [t.get('ciHigh95', m + s) for t, m, s in zip(tc, means, stds)]
     x      = range(len(labels))
@@ -472,7 +483,16 @@ def main():
         if not jsons:
             print('No results file found. Run: npm run experiment:full')
             sys.exit(1)
-        results_path = jsons[-1]  # latest
+        results_path = None
+        for candidate in reversed(jsons):
+            try:
+                candidate_data = load_results(candidate)
+            except Exception:
+                continue
+            if candidate_data.get('repoResults') or candidate_data.get('thresholdCurve') or candidate_data.get('aggregated', [{}])[0].get('n', 0):
+                results_path = candidate
+                break
+        results_path = results_path or jsons[-1]
 
     # Output directory
     out_dir = Path(args.out) if args.out else Path('paper/figures')
@@ -495,7 +515,7 @@ def main():
     fig8_effectiveness(data, out_dir)
     fig9_summary(data, out_dir)
 
-    print(f'\n✓ All figures saved to {out_dir}/')
+    print(f'\nOK All figures saved to {out_dir}/')
     print('  Copy fig*.png files to your LaTeX directory alongside main.tex')
     print('  then compile: pdflatex main.tex\n')
 

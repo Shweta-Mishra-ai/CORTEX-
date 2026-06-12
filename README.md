@@ -90,6 +90,14 @@ const filter = new SizeFilter({ threshold: 1024 * 1024 });
 const allowed = await filter.scan('/path/to/repo');
 ```
 
+### Local API Keys
+
+For the experiment runners and VS Code launch configs, copy [.env.example](.env.example) to [.env](.env) and add only the keys you want to use.
+
+The sequential runner reads [.env](.env) automatically, and [.env](.env) is ignored by Git so local keys stay out of the repo.
+
+If you do not want to use OpenAI, leave `OPENAI_API_KEY` blank or remove that line from [.env](.env).
+
 ---
 
 ## Architecture
