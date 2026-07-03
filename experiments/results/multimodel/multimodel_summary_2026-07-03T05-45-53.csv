@@ -1,0 +1,11 @@
+model,condition,n,top1_pct,top3_pct,avg_tokens,total_cost_usd,error_count
+codellama:7b-instruct,A_no_filter,3,33.3,33.3,2050,0.0,0
+codellama:7b-instruct,B_naive_truncation,3,33.3,33.3,2050,0.0,0
+codellama:7b-instruct,C_bm25,3,0.0,0.0,2050,0.0,0
+codellama:7b-instruct,D_size_1mb,3,0.0,33.3,2050,0.0,0
+codellama:7b-instruct,E_hybrid,3,0.0,0.0,2050,0.0,0
+llama3.2:3b,A_no_filter,3,0.0,0.0,2050,0.0,0
+llama3.2:3b,B_naive_truncation,3,0.0,0.0,2050,0.0,0
+llama3.2:3b,C_bm25,3,0.0,0.0,2050,0.0,0
+llama3.2:3b,D_size_1mb,3,33.3,33.3,2050,0.0,0
+llama3.2:3b,E_hybrid,3,0.0,0.0,2050,0.0,0

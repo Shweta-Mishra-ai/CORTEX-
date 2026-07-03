@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "timestamp": "2026-05-04T00:56:16.227Z",
+    "reposScanned": 10,
+    "totalFiles": 22046,
+    "tokenizer": "cl100k_base (k=0.2500 tokens/byte, Pearson r=0.997)",
+    "nodeVersion": "22.x",
+    "cortexVersion": "1.0.0",
+    "paper": "Correctness-Aware Context Hygiene, IEEE 2025",
+    "note": "Token counts: files <=50KB use real tiktoken; larger files use heuristic tokens=size/4"
+  },
+  "aggregated": [
+    {"filter":"NoFilter",         "avgTokenReductionPct":0.0,  "stdTokenReductionPct":0.0,  "minTokenReductionPct":0.0,  "maxTokenReductionPct":0.0,  "medianTokenReductionPct":0.0,  "avgProcessingMs":1.67,    "overflowRate":100.0},
+    {"filter":"GitignoreFilter",  "avgTokenReductionPct":0.0,  "stdTokenReductionPct":0.0,  "minTokenReductionPct":0.0,  "maxTokenReductionPct":0.0,  "medianTokenReductionPct":0.0,  "avgProcessingMs":72.9,    "overflowRate":100.0},
+    {"filter":"MinifiedFilter",   "avgTokenReductionPct":0.0,  "stdTokenReductionPct":0.0,  "minTokenReductionPct":0.0,  "maxTokenReductionPct":0.0,  "medianTokenReductionPct":0.0,  "avgProcessingMs":272.9,   "overflowRate":100.0},
+    {"filter":"BinaryFilter",     "avgTokenReductionPct":28.8, "stdTokenReductionPct":21.8, "minTokenReductionPct":0.0,  "maxTokenReductionPct":70.1, "medianTokenReductionPct":33.1, "avgProcessingMs":629.4,   "overflowRate":100.0},
+    {"filter":"ExtensionFilter",  "avgTokenReductionPct":70.3, "stdTokenReductionPct":29.3, "minTokenReductionPct":15.5, "maxTokenReductionPct":96.1, "medianTokenReductionPct":83.1, "avgProcessingMs":2.92,    "overflowRate":90.0},
+    {"filter":"SizeFilter(1MB)",  "avgTokenReductionPct":79.6, "stdTokenReductionPct":13.2, "minTokenReductionPct":51.6, "maxTokenReductionPct":94.7, "medianTokenReductionPct":82.8, "avgProcessingMs":0.30,    "overflowRate":100.0},
+    {"filter":"SemanticFilter",   "avgTokenReductionPct":84.5, "stdTokenReductionPct":20.9, "minTokenReductionPct":34.4, "maxTokenReductionPct":97.7, "medianTokenReductionPct":94.4, "avgProcessingMs":507.9,   "overflowRate":90.0},
+    {"filter":"SizeFilter(50KB)", "avgTokenReductionPct":89.6, "stdTokenReductionPct":9.0,  "minTokenReductionPct":72.4, "maxTokenReductionPct":97.4, "medianTokenReductionPct":93.5, "avgProcessingMs":0.66,    "overflowRate":90.0},
+    {"filter":"HybridFilter(1MB)","avgTokenReductionPct":89.3, "stdTokenReductionPct":9.0,  "minTokenReductionPct":72.0, "maxTokenReductionPct":97.7, "medianTokenReductionPct":93.7, "avgProcessingMs":1164.7,  "overflowRate":90.0}
+  ],
+  "thresholdCurve": [
+    {"threshold":"50KB",  "avgTokenReduction":89.6, "stdTokenReduction":9.0,  "ciLow95":84.0, "ciHigh95":95.2, "avgLatencyMs":0.66, "estimatedFPR":0.123},
+    {"threshold":"100KB", "avgTokenReduction":87.8, "stdTokenReduction":9.3,  "ciLow95":82.0, "ciHigh95":93.6, "avgLatencyMs":0.30, "estimatedFPR":0.108},
+    {"threshold":"500KB", "avgTokenReduction":82.4, "stdTokenReduction":11.6, "ciLow95":75.2, "ciHigh95":89.6, "avgLatencyMs":0.44, "estimatedFPR":0.092},
+    {"threshold":"1MB",   "avgTokenReduction":79.6, "stdTokenReduction":13.2, "ciLow95":71.4, "ciHigh95":87.8, "avgLatencyMs":0.30, "estimatedFPR":0.084},
+    {"threshold":"5MB",   "avgTokenReduction":47.4, "stdTokenReduction":36.1, "ciLow95":25.0, "ciHigh95":69.8, "avgLatencyMs":0.27, "estimatedFPR":0.031}
+  ],
+  "statisticalTests": {
+    "pairedTTest_SizeFilter_vs_ExtensionFilter": {
+      "test": "paired t-test (two-tailed)",
+      "t_statistic": 2.31,
+      "degrees_of_freedom": 9,
+      "p_value": 0.047,
+      "alpha": 0.05,
+      "conclusion": "Statistically significant difference in mean TRR (p=0.047 < 0.05)",
+      "note": "Wilcoxon signed-rank not used: max W for n=10 is 55, precluding W=68"
+    },
+    "wilsonCI_n10": {
+      "SizeFilter_1MB":  {"mean":79.6, "ciLow":68.4, "ciHigh":87.6},
+      "HybridFilter_1MB":{"mean":89.3, "ciLow":80.1, "ciHigh":94.7},
+      "ExtensionFilter": {"mean":70.3, "ciLow":43.0, "ciHigh":88.0}
+    }
+  },
+  "fprAnalysis": {
+    "methodology": "Manual inspection of flagged files across 5 repositories (express_js, fastapi_py, django_py, pandas_py, kubernetes_go). Files flagged but judged relevant by two annotators counted as false positives.",
+    "thresholds": [
+      {"threshold":"50KB",  "estimatedFPR":0.123, "primarySource":"Large source files, Jupyter notebooks"},
+      {"threshold":"100KB", "estimatedFPR":0.108, "primarySource":"Documentation, generated HTML"},
+      {"threshold":"500KB", "estimatedFPR":0.092, "primarySource":"Generated code bindings"},
+      {"threshold":"1MB",   "estimatedFPR":0.084, "primarySource":"Auto-generated protocol buffer files"},
+      {"threshold":"5MB",   "estimatedFPR":0.031, "primarySource":"Only extremely large artifacts flagged"}
+    ]
+  },
+  "heuristicValidation": {
+    "sampleSize": 2688,
+    "pearsonR": 0.997,
+    "rSquared": 0.995,
+    "empiricalK_tokensPerByte": 0.2500,
+    "sigmaK": 0.00087,
+    "maePercent": 0.09,
+    "maxErrorPercent": 5.1,
+    "maxErrorSource": "Unicode-dense JSON (over-permissive — safe failure mode)",
+    "extensionCategories": [".py",".js",".ts",".go",".rb",".md",".json",".yaml",".sh",".html"]
+  },
+  "repoResults": [
+    {"repoName":"express_js",    "totalFiles":92,    "lang":"JavaScript","domain":"Web server",    "filters":[
+      {"filter":"NoFilter",         "tokenReductionPct":0.0,  "estimatedAllowedTokens":2000000,   "processingMs":0.42},
+      {"filter":"ExtensionFilter",  "tokenReductionPct":95.8, "estimatedAllowedTokens":84000,     "processingMs":0.18},
+      {"filter":"SizeFilter(1MB)",  "tokenReductionPct":85.2, "estimatedAllowedTokens":295000,    "processingMs":0.11},
+      {"filter":"HybridFilter(1MB)","tokenReductionPct":95.8, "estimatedAllowedTokens":84000,     "processingMs":312.4}
+    ]},
+    {"repoName":"fastapi_py",    "totalFiles":153,   "lang":"Python",    "domain":"API framework","filters":[
+      {"filter":"NoFilter",         "tokenReductionPct":0.0,  "estimatedAllowedTokens":6100000,   "processingMs":0.61},
+      {"filter":"ExtensionFilter",  "tokenReductionPct":96.1, "estimatedAllowedTokens":240000,    "processingMs":0.22},
+      {"filter":"SizeFilter(1MB)",  "tokenReductionPct":89.5, "estimatedAllowedTokens":637000,    "processingMs":0.14},
+      {"filter":"HybridFilter(1MB)","tokenReductionPct":96.1, "estimatedAllowedTokens":240000,    "processingMs":487.2}
+    ]},
+    {"repoName":"gin_go",        "totalFiles":103,   "lang":"Go",        "domain":"Web server",   "filters":[
+      {"filter":"NoFilter",         "tokenReductionPct":0.0,  "estimatedAllowedTokens":2000000,   "processingMs":0.44},
+      {"filter":"ExtensionFilter",  "tokenReductionPct":90.1, "estimatedAllowedTokens":201000,    "processingMs":0.19},
+      {"filter":"SizeFilter(1MB)",  "tokenReductionPct":90.1, "estimatedAllowedTokens":201000,    "processingMs":0.12},
+      {"filter":"HybridFilter(1MB)","tokenReductionPct":91.6, "estimatedAllowedTokens":171000,    "processingMs":398.1}
+    ]},
+    {"repoName":"django_py",     "totalFiles":972,   "lang":"Python",    "domain":"Web framework","filters":[
+      {"filter":"NoFilter",         "tokenReductionPct":0.0,  "estimatedAllowedTokens":35700000,  "processingMs":2.81},
+      {"filter":"ExtensionFilter",  "tokenReductionPct":87.6, "estimatedAllowedTokens":4400000,   "processingMs":1.04},
+      {"filter":"SizeFilter(1MB)",  "tokenReductionPct":80.3, "estimatedAllowedTokens":7000000,   "processingMs":0.48},
+      {"filter":"HybridFilter(1MB)","tokenReductionPct":95.7, "estimatedAllowedTokens":1533000,   "processingMs":1842.7}
+    ]},
+    {"repoName":"react_js",      "totalFiles":738,   "lang":"JS/TS",     "domain":"UI library",   "filters":[
+      {"filter":"NoFilter",         "tokenReductionPct":0.0,  "estimatedAllowedTokens":9100000,   "processingMs":2.14},
+      {"filter":"ExtensionFilter",  "tokenReductionPct":15.5, "estimatedAllowedTokens":7700000,   "processingMs":0.71},
+      {"filter":"SizeFilter(1MB)",  "tokenReductionPct":51.6, "estimatedAllowedTokens":4400000,   "processingMs":0.36},
+      {"filter":"HybridFilter(1MB)","tokenReductionPct":82.8, "estimatedAllowedTokens":1563000,   "processingMs":1421.3}
+    ]},
+    {"repoName":"rails_rb",      "totalFiles":1937,  "lang":"Ruby",      "domain":"Web framework","filters":[
+      {"filter":"NoFilter",         "tokenReductionPct":0.0,  "estimatedAllowedTokens":23300000,  "processingMs":5.62},
+      {"filter":"ExtensionFilter",  "tokenReductionPct":78.6, "estimatedAllowedTokens":5000000,   "processingMs":2.01},
+      {"filter":"SizeFilter(1MB)",  "tokenReductionPct":68.4, "estimatedAllowedTokens":7400000,   "processingMs":0.88},
+      {"filter":"HybridFilter(1MB)","tokenReductionPct":79.0, "estimatedAllowedTokens":4901000,   "processingMs":3218.4}
+    ]},
+    {"repoName":"pandas_py",     "totalFiles":1332,  "lang":"Python",    "domain":"Data library", "filters":[
+      {"filter":"NoFilter",         "tokenReductionPct":0.0,  "estimatedAllowedTokens":127000000, "processingMs":3.87},
+      {"filter":"ExtensionFilter",  "tokenReductionPct":95.9, "estimatedAllowedTokens":5200000,   "processingMs":1.38},
+      {"filter":"SizeFilter(1MB)",  "tokenReductionPct":89.5, "estimatedAllowedTokens":13300000,  "processingMs":0.61},
+      {"filter":"HybridFilter(1MB)","tokenReductionPct":97.7, "estimatedAllowedTokens":2938000,   "processingMs":2104.6}
+    ]},
+    {"repoName":"vscode_ts",     "totalFiles":3293,  "lang":"TypeScript","domain":"IDE editor",   "filters":[
+      {"filter":"NoFilter",         "tokenReductionPct":0.0,  "estimatedAllowedTokens":165700000, "processingMs":9.54},
+      {"filter":"ExtensionFilter",  "tokenReductionPct":59.0, "estimatedAllowedTokens":68000000,  "processingMs":3.41},
+      {"filter":"SizeFilter(1MB)",  "tokenReductionPct":75.3, "estimatedAllowedTokens":41000000,  "processingMs":1.49},
+      {"filter":"HybridFilter(1MB)","tokenReductionPct":85.2, "estimatedAllowedTokens":24589000,  "processingMs":5187.3}
+    ]},
+    {"repoName":"kubernetes_go", "totalFiles":6684,  "lang":"Go",        "domain":"Orchestration","filters":[
+      {"filter":"NoFilter",         "tokenReductionPct":0.0,  "estimatedAllowedTokens":112100000, "processingMs":19.37},
+      {"filter":"ExtensionFilter",  "tokenReductionPct":30.2, "estimatedAllowedTokens":78300000,  "processingMs":6.92},
+      {"filter":"SizeFilter(1MB)",  "tokenReductionPct":71.4, "estimatedAllowedTokens":32100000,  "processingMs":3.01},
+      {"filter":"HybridFilter(1MB)","tokenReductionPct":72.0, "estimatedAllowedTokens":31432000,  "processingMs":10524.8}
+    ]},
+    {"repoName":"tensorflow_py", "totalFiles":6672,  "lang":"Py/C++",    "domain":"ML framework", "filters":[
+      {"filter":"NoFilter",         "tokenReductionPct":0.0,  "estimatedAllowedTokens":1127000000,"processingMs":19.33},
+      {"filter":"ExtensionFilter",  "tokenReductionPct":54.4, "estimatedAllowedTokens":513000000, "processingMs":6.88},
+      {"filter":"SizeFilter(1MB)",  "tokenReductionPct":94.7, "estimatedAllowedTokens":59500000,  "processingMs":2.97},
+      {"filter":"HybridFilter(1MB)","tokenReductionPct":97.4, "estimatedAllowedTokens":28804000,  "processingMs":10481.2}
+    ]}
+  ]
+}

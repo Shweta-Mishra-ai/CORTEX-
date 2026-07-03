@@ -1,0 +1,50 @@
+{
+  "name": "cortex-filter",
+  "version": "1.1.0",
+  "description": "CORTEX — Context Optimization via Repository Token EXclusion. Pre-execution size-based heuristic filtering for LLM-based developer tools under Maximum Effective Context Window constraints.",
+  "type": "module",
+  "main": "src/filters/index.js",
+  "bin": { "cortex": "src/cli.js" },
+  "exports": {
+    ".":           "./src/filters/index.js",
+    "./advanced":  "./src/filters/advanced.js",
+    "./research":  "./src/filters/research.js",
+    "./cli":       "./src/cli.js"
+  },
+  "scripts": {
+    "test":                   "node --test tests/filters.test.js tests/advanced.test.js tests/research.test.js",
+    "test:core":              "node --test tests/filters.test.js",
+    "test:coverage":          "node --test --experimental-test-coverage tests/filters.test.js tests/advanced.test.js tests/research.test.js",
+    "test:advanced":          "node --test tests/advanced.test.js",
+    "test:research":          "node --test tests/research.test.js",
+    "test:all":               "node --test tests/filters.test.js tests/advanced.test.js tests/research.test.js",
+    "verify:paper":           "node experiments/scripts/check_paper_results.js",
+    "experiment:full":        "node experiments/scripts/run_full.js",
+    "experiment:single":      "node experiments/scripts/run_single.js",
+    "experiment:threshold":   "node experiments/scripts/run_threshold.js",
+    "experiment:validate":    "node experiments/scripts/run_validation.js",
+    "experiment:tasks":       "node experiments/scripts/run_tasks.js",
+    "experiment:fpr":         "node experiments/scripts/estimate_fpr.js",
+    "experiment:clone":       "node experiments/scripts/clone_repos.js",
+    "figures":                "python experiments/scripts/plot_figures.py",
+    "benchmark":              "node benchmarks/latency.js",
+    "benchmark:scale":        "node benchmarks/scale.js",
+    "benchmark:matrix":       "node benchmarks/filter_matrix.js",
+    "cli":                    "node src/cli.js"
+  },
+  "keywords": [
+    "llm","context-window","token-optimization","pre-execution-filtering",
+    "developer-tools","repository-analysis","MECW","context-hygiene","cortex",
+    "code-llm","ai-coding","entropy-filter","adaptive-threshold"
+  ],
+  "author": "Shweta Mishra <shweta.mishra.research@gmail.com>",
+  "license": "MIT",
+  "engines": { "node": ">=22.0.0" },
+  "repository": {
+    "type": "git",
+    "url":  "https://github.com/shweta-mishra-research/cortex.git"
+  },
+  "homepage":  "https://github.com/shweta-mishra-research/cortex#readme",
+  "bugs":      { "url": "https://github.com/shweta-mishra-research/cortex/issues" },
+  "files": ["src/","tests/","experiments/","benchmarks/","docs/","paper/","README.md","LICENSE","CITATION.cff","CONTRIBUTING.md","requirements.txt"]
+}

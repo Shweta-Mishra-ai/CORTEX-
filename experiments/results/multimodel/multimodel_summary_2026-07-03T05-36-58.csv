@@ -1,0 +1,6 @@
+model,condition,n,top1_pct,top3_pct,avg_tokens,total_cost_usd,error_count
+gemini-2.0-flash,A_no_filter,3,0.0,0.0,36521,0.0,3
+gemini-2.0-flash,B_naive_truncation,3,0.0,0.0,31792,0.0,3
+gemini-2.0-flash,C_bm25,3,0.0,0.0,31608,0.0,3
+gemini-2.0-flash,D_size_1mb,3,0.0,0.0,36521,0.0,3
+gemini-2.0-flash,E_hybrid,3,0.0,0.0,34343,0.0,3

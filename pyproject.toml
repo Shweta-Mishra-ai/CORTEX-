@@ -1,0 +1,100 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "cortex-filter"
+version = "2.0.0"
+description = "Pre-execution repository filtering for LLM-based developer tools"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Shweta Mishra", email = "shweta.mishra.research@gmail.com" }]
+requires-python = ">=3.9"
+keywords = [
+    "llm", "context-window", "token-optimization",
+    "repository-filtering", "developer-tools", "cortex",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "pytest-cov>=4.1", "ruff>=0.4"]
+experiments = [
+    "matplotlib>=3.7",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scipy>=1.11",
+    "tiktoken>=0.5",
+    "requests>=2.31",
+    "datasets>=2.14",
+    "openai>=1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Shweta-Mishra-ai/CORTEX-"
+Repository = "https://github.com/Shweta-Mishra-ai/CORTEX-.git"
+Issues = "https://github.com/Shweta-Mishra-ai/CORTEX-/issues"
+
+[project.scripts]
+cortex = "cortex.filter:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+# ---------------------------------------------------------------------------
+# Pytest
+# ---------------------------------------------------------------------------
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*.test.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+# No custom markers — strict-markers not needed
+filterwarnings = ["ignore::DeprecationWarning"]
+
+# ---------------------------------------------------------------------------
+# Ruff
+# ---------------------------------------------------------------------------
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+exclude = [
+    ".git", "__pycache__", ".venv", "venv",
+    "experiments/repos", "build", "dist",
+    "src/python/prompt/__init__.py",
+    "src/python/swe/__init__.py",
+    "src/python/quality/__init__.py",
+    "src/python/methods/__init__.py",
+]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP"]
+ignore = [
+    "E501",   # line length handled by formatter
+    "B008",   # function calls in defaults
+    "UP007",  # use X | Y for union — keep compat with Python 3.9
+    "UP006",  # use type instead of Type — keep compat
+    "F401",   # unused import (some __init__.py re-exports)
+    "B904",   # raise from exc — relax for experiment scripts
+]
+
+[tool.ruff.lint.per-file-ignores]
+"src/python/__init__.py" = ["F401"]
+"experiments/**" = ["E402", "F401"]
+"run_*.py" = ["E402"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

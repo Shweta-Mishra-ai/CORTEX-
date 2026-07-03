@@ -1,0 +1,235 @@
+{
+  "metadata": {
+    "timestamp": "2026-07-03T05-54-19",
+    "models": [
+      "meta-llama/llama-3.1-8b-instruct:free"
+    ],
+    "conditions": [
+      "A_no_filter",
+      "B_naive_truncation",
+      "C_bm25",
+      "D_size_1mb",
+      "E_hybrid"
+    ],
+    "n_tasks": 3,
+    "token_budget": 32000,
+    "dry_run": false,
+    "repos_dir": "C:\\Users\\Shweta Mishra\\Downloads\\CORTEX-v2-push-ready\\CORTEX-\\experiments\\repos"
+  },
+  "summary": [
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct:free",
+      "condition": "A_no_filter",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 36521,
+      "total_cost_usd": 0.0,
+      "error_count": 3
+    },
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct:free",
+      "condition": "B_naive_truncation",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 31792,
+      "total_cost_usd": 0.0,
+      "error_count": 3
+    },
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct:free",
+      "condition": "C_bm25",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 31608,
+      "total_cost_usd": 0.0,
+      "error_count": 3
+    },
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct:free",
+      "condition": "D_size_1mb",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 36521,
+      "total_cost_usd": 0.0,
+      "error_count": 3
+    },
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct:free",
+      "condition": "E_hybrid",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 34343,
+      "total_cost_usd": 0.0,
+      "error_count": 3
+    }
+  ],
+  "raw": {
+    "meta-llama/llama-3.1-8b-instruct:free": {
+      "A_no_filter": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          38581,
+          32400,
+          38581
+        ],
+        "latencies": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "errors": [
+          1,
+          1,
+          1
+        ]
+      },
+      "B_naive_truncation": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          31534,
+          32309,
+          31534
+        ],
+        "latencies": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "errors": [
+          1,
+          1,
+          1
+        ]
+      },
+      "C_bm25": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          30169,
+          31149,
+          33505
+        ],
+        "latencies": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "errors": [
+          1,
+          1,
+          1
+        ]
+      },
+      "D_size_1mb": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          38581,
+          32400,
+          38581
+        ],
+        "latencies": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "errors": [
+          1,
+          1,
+          1
+        ]
+      },
+      "E_hybrid": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          36031,
+          30968,
+          36031
+        ],
+        "latencies": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "errors": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  }
+}

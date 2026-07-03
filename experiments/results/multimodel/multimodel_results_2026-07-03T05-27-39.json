@@ -1,0 +1,448 @@
+{
+  "metadata": {
+    "timestamp": "2026-07-03T05-27-39",
+    "models": [
+      "codellama:7b-instruct",
+      "llama3.2:3b"
+    ],
+    "conditions": [
+      "A_no_filter",
+      "B_naive_truncation",
+      "C_bm25",
+      "D_size_1mb",
+      "E_hybrid"
+    ],
+    "n_tasks": 3,
+    "token_budget": 32000,
+    "dry_run": false,
+    "repos_dir": "C:\\Users\\Shweta Mishra\\Downloads\\CORTEX-v2-push-ready\\CORTEX-\\experiments\\repos"
+  },
+  "summary": [
+    {
+      "model": "codellama:7b-instruct",
+      "condition": "A_no_filter",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 2050,
+      "total_cost_usd": 0.0,
+      "error_count": 0
+    },
+    {
+      "model": "codellama:7b-instruct",
+      "condition": "B_naive_truncation",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 33.3,
+      "avg_tokens": 2050,
+      "total_cost_usd": 0.0,
+      "error_count": 0
+    },
+    {
+      "model": "codellama:7b-instruct",
+      "condition": "C_bm25",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 2050,
+      "total_cost_usd": 0.0,
+      "error_count": 0
+    },
+    {
+      "model": "codellama:7b-instruct",
+      "condition": "D_size_1mb",
+      "n": 3,
+      "top1_pct": 33.3,
+      "top3_pct": 33.3,
+      "avg_tokens": 2050,
+      "total_cost_usd": 0.0,
+      "error_count": 0
+    },
+    {
+      "model": "codellama:7b-instruct",
+      "condition": "E_hybrid",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 2050,
+      "total_cost_usd": 0.0,
+      "error_count": 0
+    },
+    {
+      "model": "llama3.2:3b",
+      "condition": "A_no_filter",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 2050,
+      "total_cost_usd": 0.0,
+      "error_count": 0
+    },
+    {
+      "model": "llama3.2:3b",
+      "condition": "B_naive_truncation",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 2050,
+      "total_cost_usd": 0.0,
+      "error_count": 0
+    },
+    {
+      "model": "llama3.2:3b",
+      "condition": "C_bm25",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 2050,
+      "total_cost_usd": 0.0,
+      "error_count": 0
+    },
+    {
+      "model": "llama3.2:3b",
+      "condition": "D_size_1mb",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 2050,
+      "total_cost_usd": 0.0,
+      "error_count": 0
+    },
+    {
+      "model": "llama3.2:3b",
+      "condition": "E_hybrid",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 2050,
+      "total_cost_usd": 0.0,
+      "error_count": 0
+    }
+  ],
+  "raw": {
+    "codellama:7b-instruct": {
+      "A_no_filter": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          2050,
+          2050,
+          2050
+        ],
+        "latencies": [
+          31123.7,
+          16993.6,
+          28445.6
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      },
+      "B_naive_truncation": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          1,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          2050,
+          2050,
+          2050
+        ],
+        "latencies": [
+          22127.7,
+          17708.1,
+          25446.7
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      },
+      "C_bm25": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          2050,
+          2050,
+          2050
+        ],
+        "latencies": [
+          24562.4,
+          14349.6,
+          11336.9
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      },
+      "D_size_1mb": {
+        "top1": [
+          0,
+          1,
+          0
+        ],
+        "top3": [
+          0,
+          1,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          2050,
+          2050,
+          2050
+        ],
+        "latencies": [
+          25709.2,
+          13845.6,
+          34466.5
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      },
+      "E_hybrid": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          2050,
+          2050,
+          2050
+        ],
+        "latencies": [
+          15262.8,
+          19429.6,
+          10488.8
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "llama3.2:3b": {
+      "A_no_filter": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          2050,
+          2050,
+          2050
+        ],
+        "latencies": [
+          15650.1,
+          15597.6,
+          12935.2
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      },
+      "B_naive_truncation": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          2050,
+          2050,
+          2050
+        ],
+        "latencies": [
+          13772.2,
+          15417.3,
+          23092.4
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      },
+      "C_bm25": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          2050,
+          2050,
+          2050
+        ],
+        "latencies": [
+          15665.2,
+          11791.1,
+          24574.1
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      },
+      "D_size_1mb": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          2050,
+          2050,
+          2050
+        ],
+        "latencies": [
+          13965.7,
+          14764.2,
+          15555.2
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      },
+      "E_hybrid": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tokens": [
+          2050,
+          2050,
+          2050
+        ],
+        "latencies": [
+          16441.1,
+          10475.2,
+          19393.5
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  }
+}

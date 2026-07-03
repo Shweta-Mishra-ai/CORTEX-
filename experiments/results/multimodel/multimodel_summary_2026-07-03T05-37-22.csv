@@ -1,0 +1,6 @@
+model,condition,n,top1_pct,top3_pct,avg_tokens,total_cost_usd,error_count
+meta-llama/llama-3.1-8b-instruct:free,A_no_filter,3,0.0,0.0,36521,0.0,3
+meta-llama/llama-3.1-8b-instruct:free,B_naive_truncation,3,0.0,0.0,31792,0.0,3
+meta-llama/llama-3.1-8b-instruct:free,C_bm25,3,0.0,0.0,31608,0.0,3
+meta-llama/llama-3.1-8b-instruct:free,D_size_1mb,3,0.0,0.0,36521,0.0,3
+meta-llama/llama-3.1-8b-instruct:free,E_hybrid,3,0.0,0.0,34343,0.0,3
