@@ -1,0 +1,36 @@
+{
+  "fastapi_py": [
+    {
+      "id": "F-CR-1",
+      "type": "code_retrieval",
+      "query": "Which function handles HTTP dependency injection?",
+      "groundTruth": { "file": "fastapi/dependencies/utils.py", "fn": "solve_dependencies" }
+    },
+    {
+      "id": "F-CR-2",
+      "type": "code_retrieval",
+      "query": "Where is request body validation implemented?",
+      "groundTruth": { "file": "fastapi/routing.py", "fn": "get_request_handler" }
+    },
+    {
+      "id": "F-BL-1",
+      "type": "bug_localization",
+      "query": "Pydantic ValidationError is not converted to HTTP 422 in some edge cases.",
+      "groundTruth": { "file": "fastapi/exception_handlers.py", "fn": null }
+    }
+  ],
+  "express_js": [
+    {
+      "id": "E-CR-1",
+      "type": "code_retrieval",
+      "query": "Which function handles HTTP request routing?",
+      "groundTruth": { "file": "lib/router/index.js", "fn": "proto.handle" }
+    },
+    {
+      "id": "E-CR-2",
+      "type": "code_retrieval",
+      "query": "Where is middleware chaining implemented?",
+      "groundTruth": { "file": "lib/application.js", "fn": "app.use" }
+    }
+  ]
+}

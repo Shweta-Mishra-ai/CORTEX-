@@ -1,0 +1,235 @@
+{
+  "metadata": {
+    "timestamp": "2026-07-03T06-34-10",
+    "models": [
+      "meta-llama/llama-3.1-8b-instruct"
+    ],
+    "conditions": [
+      "A_no_filter",
+      "B_naive_truncation",
+      "C_bm25",
+      "D_size_1mb",
+      "E_hybrid"
+    ],
+    "n_tasks": 3,
+    "token_budget": 32000,
+    "dry_run": false,
+    "repos_dir": "C:\\Users\\Shweta Mishra\\Downloads\\CORTEX-v2-push-ready\\CORTEX-\\experiments\\repos"
+  },
+  "summary": [
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "condition": "A_no_filter",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 38211,
+      "total_cost_usd": 0.0069,
+      "error_count": 0
+    },
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "condition": "B_naive_truncation",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 35214,
+      "total_cost_usd": 0.0064,
+      "error_count": 0
+    },
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "condition": "C_bm25",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 32732,
+      "total_cost_usd": 0.0059,
+      "error_count": 0
+    },
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "condition": "D_size_1mb",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 38211,
+      "total_cost_usd": 0.0069,
+      "error_count": 0
+    },
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "condition": "E_hybrid",
+      "n": 3,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 34323,
+      "total_cost_usd": 0.0062,
+      "error_count": 0
+    }
+  ],
+  "raw": {
+    "meta-llama/llama-3.1-8b-instruct": {
+      "A_no_filter": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.002439,
+          0.002026,
+          0.00244
+        ],
+        "tokens": [
+          40591,
+          33443,
+          40598
+        ],
+        "latencies": [
+          5853.5,
+          12858.9,
+          3685.9
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      },
+      "B_naive_truncation": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.002019,
+          0.002317,
+          0.00202
+        ],
+        "tokens": [
+          33644,
+          38348,
+          33651
+        ],
+        "latencies": [
+          4740.7,
+          12641.3,
+          3720.4
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      },
+      "C_bm25": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.002049,
+          0.001863,
+          0.001993
+        ],
+        "tokens": [
+          34143,
+          30848,
+          33204
+        ],
+        "latencies": [
+          4713.5,
+          7104.9,
+          4096.4
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      },
+      "D_size_1mb": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.002442,
+          0.002037,
+          0.002437
+        ],
+        "tokens": [
+          40591,
+          33443,
+          40598
+        ],
+        "latencies": [
+          8053.0,
+          17977.2,
+          4474.1
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      },
+      "E_hybrid": {
+        "top1": [
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.002165,
+          0.001907,
+          0.002156
+        ],
+        "tokens": [
+          35844,
+          31275,
+          35851
+        ],
+        "latencies": [
+          14472.0,
+          19270.9,
+          5911.3
+        ],
+        "errors": [
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  }
+}

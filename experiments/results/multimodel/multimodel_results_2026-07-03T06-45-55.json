@@ -1,0 +1,295 @@
+{
+  "metadata": {
+    "timestamp": "2026-07-03T06-45-55",
+    "models": [
+      "meta-llama/llama-3.1-8b-instruct"
+    ],
+    "conditions": [
+      "A_no_filter",
+      "B_naive_truncation",
+      "C_bm25",
+      "D_size_1mb",
+      "E_hybrid"
+    ],
+    "n_tasks": 5,
+    "token_budget": 32000,
+    "dry_run": false,
+    "repos_dir": "C:\\Users\\Shweta Mishra\\Downloads\\CORTEX-v2-push-ready\\CORTEX-\\experiments\\repos"
+  },
+  "summary": [
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "condition": "A_no_filter",
+      "n": 5,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 37733,
+      "total_cost_usd": 0.0114,
+      "error_count": 0
+    },
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "condition": "B_naive_truncation",
+      "n": 5,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 35527,
+      "total_cost_usd": 0.0107,
+      "error_count": 0
+    },
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "condition": "C_bm25",
+      "n": 5,
+      "top1_pct": 20.0,
+      "top3_pct": 20.0,
+      "avg_tokens": 33106,
+      "total_cost_usd": 0.01,
+      "error_count": 0
+    },
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "condition": "D_size_1mb",
+      "n": 5,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 37733,
+      "total_cost_usd": 0.0114,
+      "error_count": 0
+    },
+    {
+      "model": "meta-llama/llama-3.1-8b-instruct",
+      "condition": "E_hybrid",
+      "n": 5,
+      "top1_pct": 0.0,
+      "top3_pct": 0.0,
+      "avg_tokens": 34018,
+      "total_cost_usd": 0.0103,
+      "error_count": 0
+    }
+  ],
+  "raw": {
+    "meta-llama/llama-3.1-8b-instruct": {
+      "A_no_filter": {
+        "top1": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.002439,
+          0.002466,
+          0.002446,
+          0.002022,
+          0.002028
+        ],
+        "tokens": [
+          40591,
+          40591,
+          40600,
+          33443,
+          33442
+        ],
+        "latencies": [
+          2699.1,
+          15839.8,
+          6985.7,
+          9205.7,
+          9558.3
+        ],
+        "errors": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "B_naive_truncation": {
+        "top1": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.002019,
+          0.002019,
+          0.00202,
+          0.002311,
+          0.002324
+        ],
+        "tokens": [
+          33644,
+          33644,
+          33653,
+          38348,
+          38347
+        ],
+        "latencies": [
+          2226.7,
+          3847.1,
+          2660.0,
+          6524.6,
+          20258.2
+        ],
+        "errors": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "C_bm25": {
+        "top1": [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "top3": [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "costs": [
+          0.002049,
+          0.001999,
+          0.00202,
+          0.00186,
+          0.002059
+        ],
+        "tokens": [
+          34143,
+          33075,
+          33647,
+          30848,
+          33817
+        ],
+        "latencies": [
+          3964.0,
+          9328.6,
+          4088.7,
+          9429.3,
+          20652.6
+        ],
+        "errors": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "D_size_1mb": {
+        "top1": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.002442,
+          0.002466,
+          0.002467,
+          0.002037,
+          0.002031
+        ],
+        "tokens": [
+          40591,
+          40591,
+          40600,
+          33443,
+          33442
+        ],
+        "latencies": [
+          6568.6,
+          14434.3,
+          14403.4,
+          13706.6,
+          13693.7
+        ],
+        "errors": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "E_hybrid": {
+        "top1": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "top3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "costs": [
+          0.002167,
+          0.002169,
+          0.002182,
+          0.00188,
+          0.001906
+        ],
+        "tokens": [
+          35844,
+          35844,
+          35853,
+          31275,
+          31274
+        ],
+        "latencies": [
+          12117.3,
+          12422.7,
+          17136.1,
+          5353.9,
+          14402.7
+        ],
+        "errors": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  }
+}
